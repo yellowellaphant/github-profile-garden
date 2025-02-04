@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water the Flowers</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #d4f1f4;
+        }
+        .garden {
+            position: relative;
+            display: flex;
+            gap: 20px;
+        }
+        .flower {
+            width: 50px;
+            height: 50px;
+            background: green;
+            border-radius: 50%;
+            transition: transform 1s ease-in-out;
+        }
+        .watering-can {
+            cursor: pointer;
+            width: 100px;
+            transition: transform 0.3s;
+        }
+        .water {
+            position: absolute;
+            width: 10px;
+            height: 50px;
+            background: blue;
+            opacity: 0;
+            transition: opacity 0.5s, transform 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Click the Watering Can to Grow the Flowers! 🌱</h1>
+    <img src="watering-can.png" class="watering-can" onclick="waterFlowers()" alt="Watering Can">
+    
+    <div class="garden">
+        <div class="flower" id="flower1"></div>
+        <div class="flower" id="flower2"></div>
+        <div class="flower" id="flower3"></div>
+    </div>
+
+    <script>
+        function waterFlowers() {
+            document.querySelector('.watering-can').style.transform = "rotate(-15deg)";
+
+            setTimeout(() => {
+                document.getElementById("flower1").style.transform = "scale(1.5)";
+                document.getElementById("flower2").style.transform = "scale(1.5)";
+                document.getElementById("flower3").style.transform = "scale(1.5)";
+            }, 500);
+        }
+    </script>
+
+</body>
+</html>
